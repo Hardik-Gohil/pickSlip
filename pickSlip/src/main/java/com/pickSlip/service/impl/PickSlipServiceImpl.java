@@ -145,6 +145,9 @@ public class PickSlipServiceImpl implements PickSlipService {
 		case "3":
 			model.addAttribute("activeTab", tabId);
 			break;
+		case "4":
+			model.addAttribute("activeTab", tabId);
+			break;			
 		default:
 			model.addAttribute("activeTab", "1");
 			break;

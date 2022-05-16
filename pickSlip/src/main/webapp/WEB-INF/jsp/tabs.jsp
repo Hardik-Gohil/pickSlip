@@ -22,6 +22,9 @@
 						<li class="nav-item">
 							<a class="nav-link <c:if test="${activeTab eq '3'}">active</c:if>" id="custom-tabs-one-location-master-tab" href="${contextPath}/tab/3" role="tab">Location Master</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link <c:if test="${activeTab eq '4'}">active</c:if>" id="custom-tabs-one-lr-slip-tab" href="${contextPath}/tab/4" role="tab">LR Slip</a>
+						</li>						
 						<li class="nav-item  ml-auto"><a class="nav-link"
 							href="${contextPath}/logout"><i class="fas fa-power-off"></i></a>
 						</li>
@@ -44,6 +47,11 @@
 								<%@include file="includes/tabs/location.jsp"%>
 							</div>
 						</c:if>
+						<c:if test="${activeTab eq '4'}">
+							<div class="tab-pane fade show active" id="custom-tabs-one-lr-slip" role="tabpanel" aria-labelledby="custom-tabs-one-lr-slip-tab">
+								<%@include file="includes/tabs/lrSlip.jsp"%>
+							</div>
+						</c:if>						
 					</div>
 				</div>
 			</div>
