@@ -16,7 +16,7 @@ public class LRSlipDto {
 //  AD	
 //	CH
 
-	private String consignmentNo;
+	private BigInteger consignmentNo;
 	private String referenceNumber;
 	private String consigneeCompanyName;
 	private String consigneeCity;

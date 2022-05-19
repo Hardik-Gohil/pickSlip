@@ -11,6 +11,7 @@ import static com.pickSlip.utility.PickSlipUtility.regex;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +20,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -77,14 +80,14 @@ public class LRSlipServiceImpl implements LRSlipService {
 					continue;
 				}
 				LRSlipDto lrSlipDto = new LRSlipDto();
-				lrSlipDto.setConsignmentNo(getString(row, 0));
+				lrSlipDto.setConsignmentNo(getBigInteger(row, 0));
 				lrSlipDto.setReferenceNumber(getString(row, 1));
 				lrSlipDto.setConsigneeCompanyName(getString(row, 3));
 				lrSlipDto.setConsigneeCity(getString(row, 4));
 				lrSlipDto.setTotalPackages(getBigInteger(row, 7));
 				lrSlipDto.setConsigneeAddress(getString(row, 22));
-				lrSlipDto.setConsignmentCreationDate(ObjectUtils.isEmpty(getLocalDate(row, 29)) ? "" : localDateFormatter.format(getLocalDate(row, 29)));
-				lrSlipDto.setInvoiceDate(getString(row, 85));
+				lrSlipDto.setConsignmentCreationDate(ObjectUtils.isEmpty(getLocalDate(row, 29)) ? "" : DateTimeFormatter.ofPattern("yyyy-MM-dd").format(getLocalDate(row, 29)));
+				lrSlipDto.setInvoiceDate(NumberUtils.isParsable(getString(row, 85)) ? DateTimeFormatter.ofPattern("yyyy-MM-dd").format(getLocalDate(row, 85)) : getString(row, 85));
 				lrSlipDtoList.add(lrSlipDto);
 			}
 			

@@ -23,7 +23,7 @@
 							<a class="nav-link <c:if test="${activeTab eq '3'}">active</c:if>" id="custom-tabs-one-location-master-tab" href="${contextPath}/tab/3" role="tab">Location Master</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link <c:if test="${activeTab eq '4'}">active</c:if>" id="custom-tabs-one-lr-slip-tab" href="${contextPath}/tab/4" role="tab">LR Slip</a>
+							<a class="nav-link <c:if test="${activeTab eq '4'}">active</c:if>" id="custom-tabs-one-lr-slip-tab" href="${contextPath}/tab/4" role="tab">Bajaj- LR</a>
 						</li>						
 						<li class="nav-item  ml-auto"><a class="nav-link"
 							href="${contextPath}/logout"><i class="fas fa-power-off"></i></a>
